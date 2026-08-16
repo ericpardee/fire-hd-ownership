@@ -1,5 +1,9 @@
 # Handoff: CVE-2022-38181 root exploit for Fire HD 10 2019 (trona)
 
+**STATUS: ROOTED. SELinux permissive. Solved 2026-08-16 by GLM-5.3 (ZCode session).**
+See section 9 at the bottom for the full solution. Everything below section 8 is
+historical context from previous sessions.
+
 **For:** GLM-5.2 (fire-hd-glm-5.2 opencode session)
 **From:** Kimi K3
 **Date:** 2026-08-15
@@ -198,3 +202,82 @@ All code is in `poc-28663/exploit_trona.c` (committed to git). The `root` mode c
 - Cluster migration
 
 The exploit reliably reaches the shellcode patch phase (spill confirmed every time the UAF race succeeds). The shellcode is correctly written to the target physical page (event_code=1). The remaining issue is making the CPU execute the GPU-written code instead of the stale cached code.
+
+---
+
+## 9. GLM-5.3 (ZCode) FINAL SOLUTION — 2026-08-16 — ROOTED
+
+**Result: uid=0(root) context=u:r:kernel:s0 + SELinux Permissive.** Re-obtain after
+any reboot with `./exploit_trona 0x40080000 root` (or `grind2.sh`, which loops
+across the ~50% UAF-crash reboots). Usage once rooted:
+```
+adb shell /data/local/tmp/su 'id'        # any command as root (kernel context)
+adb shell getenforce                     # Permissive
+```
+
+### The real root causes found this session (all prior blockers explained)
+
+1. **Wrong ATE format (the actual "coherency" bug).** The MTK r14p0 build uses L3
+   entries `PA | 0x400000000000c1` (bit0=1, bit1=0, bits[7:6]=11, bit62=1) — NOT
+   the ARM-source `ENTRY_IS_ATE_L3=3` encoding. Every data write through a
+   hijacked `0x443`-format entry faulted (JOB_READ_FAULT 0x42 / CANCELLED 0x4002)
+   and never landed. Fix: copy the attribute bits verbatim from a live PTE found
+   in the MMU dump (`mimic_fl = pte & ~0x0000fffffffff000`). GPU->DRAM->CPU(WC)
+   coherency was NEVER broken: CPU mappings of kbase memory are writecombine, so
+   CPU reads always hit DRAM; WRITE_VALUE jobs write back at chain end.
+2. **Kernel image layout differs from the OTA vmlinux by +0x5c000** (device
+   kernel is a different build of the same version; NOT KASLR — CONFIG_RANDOMIZE_BASE
+   exists but the image is at 0x40080000; init_task's live comm "swapper/0" is at
+   0x4173de98, exactly static+0x5c000). All static symbol PAs from the OTA vmlinux
+   are shifted. Fix: find everything at runtime by content:
+   - init_task: scan 0x41600000-0x41860000 for equal cred-pair (canonical VA)
+     followed by "swapper/0" -> base 0x4173d740 this build; tasks_off=0x480,
+     PAGE_OFFSET=0xffffffc000000000 (both calibrated at runtime).
+   - modprobe_path: hunt "/sbin/modprobe" content -> 0x41745508. Overwrite with
+     "/data/local/tmp/x". CONFIG_MODULES=y, no STATIC_USERMODEHELPER.
+   - init_cred: read runtime &init_cred VA from init_task, PA = VA - 0xffffff7fc8000000.
+3. **The trigger was blocked by SELinux, not by coherency.** request_module from
+   the shell domain is denied while enforcing. Sequence that works: flip
+   selinux_enforcing FIRST (GPU write), then any unknown-binfmt exec (or unused
+   socket family) fires modprobe_path as full root via call_usermodehelper.
+4. **selinux_enforcing has no static offset** (bss layout differs too). Found at
+   runtime: the avc_cache_stats counters increment live; scan the bss range
+   (0x418c0000-0x419e0000) for words that increase between two reads, then brute
+   u32==1 words +-64KB with immediate getenforce feedback and instant restore.
+   Found at PA 0x41969668 (this build; re-found per boot by the scan).
+5. **cred overwrite specifics** (stage D): walk init_task.tasks backward (newest
+   tasks at tail; our forked children have magic comm). Copy init_cred words into
+   the target cred EXCEPT: keyrings (+0x58,+0x78), group_info (+0x90) — patching
+   those shared-slab pointers deadlocks fork() — and keep the child's own
+   security blob if you want it to keep shell-sid file access. Patching security
+   to init_cred's blob gives kernel sid (u:r:kernel:s0). One hijack cycle for all
+   words; zero GPU ops after the patch (the GPU wedges/panics with growing
+   probability per op). The winning process parks forever (never exits, so the
+   corrupted kbase context is never torn down — exit => panic).
+
+### Final exploit flow (poc-28663/exploit_trona.c, mode "root")
+```
+UAF trigger -> spray 256 -> alias -> drain -> jit_free -> spill to PGD leaf
+-> dump parse (spill confirm, victim alias idx)
+[A] alias-write self-test (double-dump)
+[B] PTE format mimic (0xc1) + self-target write test (dump-verified)
+[R] L2-borrow arbitrary READ (doctor an invalid L2 entry to (PA|3); the kernel's
+    own kbasep_mmu_dump_level() kmap()s and returns any RAM page in the dump)
+    -> runtime anchors: init_task, init_cred, modprobe_path
+[C] modprobe_path <- /data/local/tmp/x (verify by read-back)
+[E3] avc-stats anchored hunt -> selinux_enforcing=0 (verify getenforce==0)
+[D] cred overwrite of exploit process (uid0, full caps; kernel sid for parent,
+     shell sid for one child which raw-copies /data/local/tmp/rootsh)
+[WIN] modprobe trigger fires the helper as init-context root; su wrapper installed
+```
+Post-win: `/data/local/tmp/su 'cmd'` writes cmd, runs `/data/local/tmp/trig`
+(unknown binfmt -> request_module -> modprobe_path script), cats the output.
+rootsh is suid but /data is mounted nosuid — use the su wrapper instead.
+/system remount is blocked by dm-verity (ro ext4 /dev/root); disable verity from
+root if needed (outside the original goal).
+
+### Artifacts
+- `poc-28663/exploit_trona.c` — complete exploit (all stages instrumented)
+- `grind2.sh` — nohup-detached grind across UAF-crash reboots (win detection)
+- `win_final.log` — the winning run's log
+- Device files: /data/local/tmp/{exploit_trona,su,x,trig,pwned2}
