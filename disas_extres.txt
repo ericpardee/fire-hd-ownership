@@ -1,0 +1,800 @@
+0xffffff80086db488: sub	sp, sp, #0x50   ; kbase_ext_res_prepare
+0xffffff80086db48c: adrp	x8, #0xffffff80096d3000   ; kbase_ext_res_prepare
+0xffffff80086db490: ldr	x8, [x8, #0xa48]   ; kbase_ext_res_prepare
+0xffffff80086db494: str	x23, [sp, #0x10]   ; kbase_ext_res_prepare
+0xffffff80086db498: stp	x22, x21, [sp, #0x20]   ; kbase_ext_res_prepare
+0xffffff80086db49c: stp	x20, x19, [sp, #0x30]   ; kbase_ext_res_prepare
+0xffffff80086db4a0: stp	x29, x30, [sp, #0x40]   ; kbase_ext_res_prepare
+0xffffff80086db4a4: mov	x19, x0   ; kbase_ext_res_prepare
+0xffffff80086db4a8: str	x8, [sp, #8]   ; kbase_ext_res_prepare
+0xffffff80086db4ac: str	xzr, [sp]   ; kbase_ext_res_prepare
+0xffffff80086db4b0: ldr	x20, [x19, #0xc8]   ; kbase_ext_res_prepare
+0xffffff80086db4b4: add	x29, sp, #0x40   ; kbase_ext_res_prepare
+0xffffff80086db4b8: cbz	x20, #0xffffff80086db57c   ; kbase_ext_res_prepare
+0xffffff80086db4bc: mrs	x23, sp_el0   ; kbase_ext_res_prepare
+0xffffff80086db4c0: ldr	x8, [x23, #8]   ; kbase_ext_res_prepare
+0xffffff80086db4c4: mov	x9, x20   ; kbase_ext_res_prepare
+0xffffff80086db4c8: adds	x9, x9, #8   ; kbase_ext_res_prepare
+0xffffff80086db4cc: ccmp	x9, x8, #2, lo   ; kbase_ext_res_prepare
+0xffffff80086db4d0: cset	x10, ls   ; kbase_ext_res_prepare
+0xffffff80086db4d4: cbz	x10, #0xffffff80086db578   ; kbase_ext_res_prepare
+0xffffff80086db4d8: mov	x0, sp   ; kbase_ext_res_prepare
+0xffffff80086db4dc: mov	w1, #8   ; kbase_ext_res_prepare
+0xffffff80086db4e0: mov	w2, wzr   ; kbase_ext_res_prepare
+0xffffff80086db4e4: bl	#0xffffff80082007a8   ; kbase_ext_res_prepare
+0xffffff80086db4e8: mov	x0, sp   ; kbase_ext_res_prepare
+0xffffff80086db4ec: mov	w2, #8   ; kbase_ext_res_prepare
+0xffffff80086db4f0: mov	x1, x20   ; kbase_ext_res_prepare
+0xffffff80086db4f4: bl	#0xffffff80083a33c0   ; kbase_ext_res_prepare
+0xffffff80086db4f8: cbnz	x0, #0xffffff80086db57c   ; kbase_ext_res_prepare
+0xffffff80086db4fc: ldr	x8, [sp]   ; kbase_ext_res_prepare
+0xffffff80086db500: sub	x9, x8, #1   ; kbase_ext_res_prepare
+0xffffff80086db504: cmp	x9, #9   ; kbase_ext_res_prepare
+0xffffff80086db508: b.hi	#0xffffff80086db57c   ; kbase_ext_res_prepare
+0xffffff80086db50c: lsl	x8, x8, #3   ; kbase_ext_res_prepare
+0xffffff80086db510: add	x22, x8, #8   ; kbase_ext_res_prepare
+0xffffff80086db514: mov	w1, #0x80c0   ; kbase_ext_res_prepare
+0xffffff80086db518: movk	w1, #0x240, lsl #16   ; kbase_ext_res_prepare
+0xffffff80086db51c: mov	x0, x22   ; kbase_ext_res_prepare
+0xffffff80086db520: bl	#0xffffff80081f8880   ; kbase_ext_res_prepare
+0xffffff80086db524: mov	x21, x0   ; kbase_ext_res_prepare
+0xffffff80086db528: cbz	x21, #0xffffff80086db5ac   ; kbase_ext_res_prepare
+0xffffff80086db52c: ldr	x8, [x23, #8]   ; kbase_ext_res_prepare
+0xffffff80086db530: mov	x9, x20   ; kbase_ext_res_prepare
+0xffffff80086db534: mov	x0, x21   ; kbase_ext_res_prepare
+0xffffff80086db538: adds	x9, x9, x22   ; kbase_ext_res_prepare
+0xffffff80086db53c: ccmp	x9, x8, #2, lo   ; kbase_ext_res_prepare
+0xffffff80086db540: cset	x10, ls   ; kbase_ext_res_prepare
+0xffffff80086db544: cbz	x10, #0xffffff80086db5b4   ; kbase_ext_res_prepare
+0xffffff80086db548: mov	x1, x22   ; kbase_ext_res_prepare
+0xffffff80086db54c: mov	w2, wzr   ; kbase_ext_res_prepare
+0xffffff80086db550: bl	#0xffffff80082007a8   ; kbase_ext_res_prepare
+0xffffff80086db554: mov	x0, x21   ; kbase_ext_res_prepare
+0xffffff80086db558: mov	x1, x20   ; kbase_ext_res_prepare
+0xffffff80086db55c: mov	x2, x22   ; kbase_ext_res_prepare
+0xffffff80086db560: bl	#0xffffff80083a33c0   ; kbase_ext_res_prepare
+0xffffff80086db564: cbnz	x0, #0xffffff80086db5c0   ; kbase_ext_res_prepare
+0xffffff80086db568: ldr	x8, [sp]   ; kbase_ext_res_prepare
+0xffffff80086db56c: str	x8, [x21]   ; kbase_ext_res_prepare
+0xffffff80086db570: str	x21, [x19, #0xd0]   ; kbase_ext_res_prepare
+0xffffff80086db574: b	#0xffffff80086db580   ; kbase_ext_res_prepare
+0xffffff80086db578: str	xzr, [sp]   ; kbase_ext_res_prepare
+0xffffff80086db57c: mov	w0, #-0x16   ; kbase_ext_res_prepare
+0xffffff80086db580: adrp	x9, #0xffffff80096d3000   ; kbase_ext_res_prepare
+0xffffff80086db584: ldr	x8, [sp, #8]   ; kbase_ext_res_prepare
+0xffffff80086db588: ldr	x9, [x9, #0xa48]   ; kbase_ext_res_prepare
+0xffffff80086db58c: cmp	x9, x8   ; kbase_ext_res_prepare
+0xffffff80086db590: b.ne	#0xffffff80086db5cc   ; kbase_ext_res_prepare
+0xffffff80086db594: ldp	x29, x30, [sp, #0x40]   ; kbase_ext_res_prepare
+0xffffff80086db598: ldp	x20, x19, [sp, #0x30]   ; kbase_ext_res_prepare
+0xffffff80086db59c: ldp	x22, x21, [sp, #0x20]   ; kbase_ext_res_prepare
+0xffffff80086db5a0: ldr	x23, [sp, #0x10]   ; kbase_ext_res_prepare
+0xffffff80086db5a4: add	sp, sp, #0x50   ; kbase_ext_res_prepare
+0xffffff80086db5a8: ret	   ; kbase_ext_res_prepare
+0xffffff80086db5ac: mov	w0, #-0xc   ; kbase_ext_res_prepare
+0xffffff80086db5b0: b	#0xffffff80086db580   ; kbase_ext_res_prepare
+0xffffff80086db5b4: mov	w1, wzr   ; kbase_ext_res_prepare
+0xffffff80086db5b8: mov	x2, x22   ; kbase_ext_res_prepare
+0xffffff80086db5bc: bl	#0xffffff80083a4300   ; kbase_ext_res_prepare
+0xffffff80086db5c0: mov	x0, x21   ; kbase_ext_res_prepare
+0xffffff80086db5c4: bl	#0xffffff80081f8d14   ; kbase_ext_res_prepare
+0xffffff80086db5c8: b	#0xffffff80086db57c   ; kbase_ext_res_prepare
+0xffffff80086db5cc: bl	#0xffffff80080a3ba4   ; kbase_ext_res_prepare
+0xffffff80086db5d0: str	x27, [sp, #-0x60]!   ; kbase_ext_res_prepare
+0xffffff80086db5d4: stp	x26, x25, [sp, #0x10]   ; kbase_ext_res_prepare
+0xffffff80086db5d8: stp	x24, x23, [sp, #0x20]   ; kbase_ext_res_prepare
+0xffffff80086db5dc: stp	x22, x21, [sp, #0x30]   ; kbase_ext_res_prepare
+0xffffff80086db5e0: stp	x20, x19, [sp, #0x40]   ; kbase_ext_res_prepare
+0xffffff80086db5e4: stp	x29, x30, [sp, #0x50]   ; kbase_ext_res_prepare
+0xffffff80086db5e8: mov	x19, x0   ; kbase_ext_res_prepare
+0xffffff80086db5ec: ldr	x20, [x19, #0xd0]   ; kbase_ext_res_prepare
+0xffffff80086db5f0: add	x29, sp, #0x50   ; kbase_ext_res_prepare
+0xffffff80086db5f4: cbz	x20, #0xffffff80086db700   ; kbase_ext_res_prepare
+0xffffff80086db5f8: ldr	x0, [x19, #0x38]   ; kbase_ext_res_prepare
+0xffffff80086db5fc: ldrh	w23, [x19, #0xb2]   ; kbase_ext_res_prepare
+0xffffff80086db600: bl	#0xffffff80086c70e0   ; kbase_ext_res_prepare
+0xffffff80086db604: cbz	w23, #0xffffff80086db6ec   ; kbase_ext_res_prepare
+0xffffff80086db608: mov	w8, wzr   ; kbase_ext_res_prepare
+0xffffff80086db60c: mov	w24, #0x38   ; kbase_ext_res_prepare
+0xffffff80086db610: umaddl	x22, w8, w24, x20   ; kbase_ext_res_prepare
+0xffffff80086db614: ldr	x0, [x22, #8]!   ; kbase_ext_res_prepare
+0xffffff80086db618: cbz	x0, #0xffffff80086db6ec   ; kbase_ext_res_prepare
+0xffffff80086db61c: mov	w25, w8   ; kbase_ext_res_prepare
+0xffffff80086db620: madd	x26, x25, x24, x20   ; kbase_ext_res_prepare
+0xffffff80086db624: ldr	x21, [x22, #0x18]   ; kbase_ext_res_prepare
+0xffffff80086db628: ldr	w8, [x26, #0x10]!   ; kbase_ext_res_prepare
+0xffffff80086db62c: cmp	w8, #1   ; kbase_ext_res_prepare
+0xffffff80086db630: b.lt	#0xffffff80086db668   ; kbase_ext_res_prepare
+0xffffff80086db634: mov	x27, xzr   ; kbase_ext_res_prepare
+0xffffff80086db638: ldr	x0, [x0, x27, lsl #3]   ; kbase_ext_res_prepare
+0xffffff80086db63c: cbnz	x0, #0xffffff80086db650   ; kbase_ext_res_prepare
+0xffffff80086db640: b	#0xffffff80086db658   ; kbase_ext_res_prepare
+0xffffff80086db644: ldr	x0, [x22]   ; kbase_ext_res_prepare
+0xffffff80086db648: ldr	x0, [x0, x27, lsl #3]   ; kbase_ext_res_prepare
+0xffffff80086db64c: cbz	x0, #0xffffff80086db658   ; kbase_ext_res_prepare
+0xffffff80086db650: bl	#0xffffff80081bec3c   ; kbase_ext_res_prepare
+0xffffff80086db654: ldr	w8, [x26]   ; kbase_ext_res_prepare
+0xffffff80086db658: add	x27, x27, #1   ; kbase_ext_res_prepare
+0xffffff80086db65c: cmp	x27, w8, sxtw   ; kbase_ext_res_prepare
+0xffffff80086db660: b.lt	#0xffffff80086db644   ; kbase_ext_res_prepare
+0xffffff80086db664: ldr	x0, [x22]   ; kbase_ext_res_prepare
+0xffffff80086db668: bl	#0xffffff80081f8d14   ; kbase_ext_res_prepare
+0xffffff80086db66c: cbz	x21, #0xffffff80086db6e0   ; kbase_ext_res_prepare
+0xffffff80086db670: ldr	w8, [x21, #0x50]   ; kbase_ext_res_prepare
+0xffffff80086db674: cmp	w8, #2   ; kbase_ext_res_prepare
+0xffffff80086db678: b.ne	#0xffffff80086db6b8   ; kbase_ext_res_prepare
+0xffffff80086db67c: madd	x8, x25, x24, x20   ; kbase_ext_res_prepare
+0xffffff80086db680: ldr	x22, [x8, #0x28]   ; kbase_ext_res_prepare
+0xffffff80086db684: cbz	x22, #0xffffff80086db6b8   ; kbase_ext_res_prepare
+0xffffff80086db688: ldr	w26, [x8, #0x30]   ; kbase_ext_res_prepare
+0xffffff80086db68c: cmp	w26, #1   ; kbase_ext_res_prepare
+0xffffff80086db690: b.lt	#0xffffff80086db6b0   ; kbase_ext_res_prepare
+0xffffff80086db694: mov	x27, x22   ; kbase_ext_res_prepare
+0xffffff80086db698: ldr	x0, [x27]   ; kbase_ext_res_prepare
+0xffffff80086db69c: cbz	x0, #0xffffff80086db6a4   ; kbase_ext_res_prepare
+0xffffff80086db6a0: bl	#0xffffff80081bec3c   ; kbase_ext_res_prepare
+0xffffff80086db6a4: subs	x26, x26, #1   ; kbase_ext_res_prepare
+0xffffff80086db6a8: add	x27, x27, #8   ; kbase_ext_res_prepare
+0xffffff80086db6ac: b.ne	#0xffffff80086db698   ; kbase_ext_res_prepare
+0xffffff80086db6b0: mov	x0, x22   ; kbase_ext_res_prepare
+0xffffff80086db6b4: bl	#0xffffff80081f8d14   ; kbase_ext_res_prepare
+0xffffff80086db6b8: nop	   ; kbase_ext_res_prepare
+0xffffff80086db6bc: prfm	pstl1strm, [x21]   ; kbase_ext_res_prepare
+0xffffff80086db6c0: ldxr	w8, [x21]   ; kbase_ext_res_prepare
+0xffffff80086db6c4: sub	w8, w8, #1   ; kbase_ext_res_prepare
+0xffffff80086db6c8: stlxr	w9, w8, [x21]   ; kbase_ext_res_prepare
+0xffffff80086db6cc: cbnz	w9, #0xffffff80086db6c0   ; kbase_ext_res_prepare
+0xffffff80086db6d0: dmb	ish   ; kbase_ext_res_prepare
+0xffffff80086db6d4: cbnz	w8, #0xffffff80086db6e0   ; kbase_ext_res_prepare
+0xffffff80086db6d8: mov	x0, x21   ; kbase_ext_res_prepare
+0xffffff80086db6dc: bl	#0xffffff80086c8ce8   ; kbase_ext_res_prepare
+0xffffff80086db6e0: add	w8, w25, #1   ; kbase_ext_res_prepare
+0xffffff80086db6e4: cmp	w8, w23   ; kbase_ext_res_prepare
+0xffffff80086db6e8: b.lo	#0xffffff80086db610   ; kbase_ext_res_prepare
+0xffffff80086db6ec: ldr	x0, [x19, #0x38]   ; kbase_ext_res_prepare
+0xffffff80086db6f0: bl	#0xffffff80086c70f8   ; kbase_ext_res_prepare
+0xffffff80086db6f4: mov	x0, x20   ; kbase_ext_res_prepare
+0xffffff80086db6f8: bl	#0xffffff80081f8d14   ; kbase_ext_res_prepare
+0xffffff80086db6fc: str	xzr, [x19, #0xd0]   ; kbase_ext_res_prepare
+0xffffff80086db700: ldp	x29, x30, [sp, #0x50]   ; kbase_ext_res_prepare
+0xffffff80086db704: ldp	x20, x19, [sp, #0x40]   ; kbase_ext_res_prepare
+0xffffff80086db708: ldp	x22, x21, [sp, #0x30]   ; kbase_ext_res_prepare
+0xffffff80086db70c: ldp	x24, x23, [sp, #0x20]   ; kbase_ext_res_prepare
+0xffffff80086db710: ldp	x26, x25, [sp, #0x10]   ; kbase_ext_res_prepare
+0xffffff80086db714: ldr	x27, [sp], #0x60   ; kbase_ext_res_prepare
+0xffffff80086db718: ret	   ; kbase_ext_res_prepare
+0xffffff80086db71c: sub	sp, sp, #0x80   ; kbase_ext_res_prepare
+0xffffff80086db720: adrp	x8, #0xffffff80096d3000   ; kbase_ext_res_prepare
+0xffffff80086db724: ldr	x8, [x8, #0xa48]   ; kbase_ext_res_prepare
+0xffffff80086db728: stp	x20, x19, [sp, #0x60]   ; kbase_ext_res_prepare
+0xffffff80086db72c: mov	x19, x0   ; kbase_ext_res_prepare
+0xffffff80086db730: add	x20, x19, #0x490   ; kbase_ext_res_prepare
+0xffffff80086db734: stp	x22, x21, [sp, #0x50]   ; kbase_ext_res_prepare
+0xffffff80086db738: add	x21, sp, #8   ; kbase_ext_res_prepare
+0xffffff80086db73c: mov	x0, x20   ; kbase_ext_res_prepare
+0xffffff80086db740: stp	x28, x27, [sp, #0x20]   ; kbase_ext_res_prepare
+0xffffff80086db744: stp	x26, x25, [sp, #0x30]   ; kbase_ext_res_prepare
+0xffffff80086db748: stp	x24, x23, [sp, #0x40]   ; kbase_ext_res_prepare
+0xffffff80086db74c: stp	x29, x30, [sp, #0x70]   ; kbase_ext_res_prepare
+0xffffff80086db750: add	x29, sp, #0x70   ; kbase_ext_res_prepare
+0xffffff80086db754: str	x8, [sp, #0x18]   ; kbase_ext_res_prepare
+0xffffff80086db758: stp	x21, x21, [sp, #8]   ; kbase_ext_res_prepare
+0xffffff80086db75c: bl	#0xffffff8008ca8158   ; kbase_ext_res_prepare
+0xffffff80086db760: ldr	x9, [x19, #0x658]   ; kbase_ext_res_prepare
+0xffffff80086db764: add	x8, x19, #0x658   ; kbase_ext_res_prepare
+0xffffff80086db768: cmp	x9, x8   ; kbase_ext_res_prepare
+0xffffff80086db76c: b.eq	#0xffffff80086db790   ; kbase_ext_res_prepare
+0xffffff80086db770: ldr	x10, [sp, #8]   ; kbase_ext_res_prepare
+0xffffff80086db774: ldr	x11, [x19, #0x660]   ; kbase_ext_res_prepare
+0xffffff80086db778: str	x21, [x9, #8]   ; kbase_ext_res_prepare
+0xffffff80086db77c: str	x9, [sp, #8]   ; kbase_ext_res_prepare
+0xffffff80086db780: str	x10, [x11]   ; kbase_ext_res_prepare
+0xffffff80086db784: str	x11, [x10, #8]   ; kbase_ext_res_prepare
+0xffffff80086db788: str	x8, [x19, #0x658]   ; kbase_ext_res_prepare
+0xffffff80086db78c: str	x8, [x19, #0x660]   ; kbase_ext_res_prepare
+0xffffff80086db790: mov	x0, x20   ; kbase_ext_res_prepare
+0xffffff80086db794: bl	#0xffffff8008ca83d0   ; kbase_ext_res_prepare
+0xffffff80086db798: ldr	x28, [sp, #8]   ; kbase_ext_res_prepare
+0xffffff80086db79c: cmp	x21, x28   ; kbase_ext_res_prepare
+0xffffff80086db7a0: b.eq	#0xffffff80086db870   ; kbase_ext_res_prepare
+0xffffff80086db7a4: mov	x24, #0x100   ; kbase_ext_res_prepare
+0xffffff80086db7a8: mov	w25, #0x2dc8   ; kbase_ext_res_prepare
+0xffffff80086db7ac: mov	w23, wzr   ; kbase_ext_res_prepare
+0xffffff80086db7b0: movk	x24, #0xdead, lsl #48   ; kbase_ext_res_prepare
+0xffffff80086db7b4: movk	w25, #2, lsl #16   ; kbase_ext_res_prepare
+0xffffff80086db7b8: add	x26, sp, #8   ; kbase_ext_res_prepare
+0xffffff80086db7bc: str	x19, [sp]   ; kbase_ext_res_prepare
+0xffffff80086db7c0: ldur	x8, [x28, #-0x38]   ; kbase_ext_res_prepare
+0xffffff80086db7c4: ldr	x27, [x28]   ; kbase_ext_res_prepare
+0xffffff80086db7c8: sub	x21, x28, #0x70   ; kbase_ext_res_prepare
+0xffffff80086db7cc: add	x20, x8, #0x350   ; kbase_ext_res_prepare
+0xffffff80086db7d0: mov	x0, x20   ; kbase_ext_res_prepare
+0xffffff80086db7d4: bl	#0xffffff8008ca8158   ; kbase_ext_res_prepare
+0xffffff80086db7d8: ldp	x8, x9, [x28]   ; kbase_ext_res_prepare
+0xffffff80086db7dc: add	x19, x24, #0x100   ; kbase_ext_res_prepare
+0xffffff80086db7e0: str	x9, [x8, #8]   ; kbase_ext_res_prepare
+0xffffff80086db7e4: str	x8, [x9]   ; kbase_ext_res_prepare
+0xffffff80086db7e8: ldur	x8, [x28, #-0x38]   ; kbase_ext_res_prepare
+0xffffff80086db7ec: stp	x24, x19, [x28]   ; kbase_ext_res_prepare
+0xffffff80086db7f0: add	x22, x8, x25   ; kbase_ext_res_prepare
+0xffffff80086db7f4: mov	x0, x22   ; kbase_ext_res_prepare
+0xffffff80086db7f8: bl	#0xffffff8008cab270   ; kbase_ext_res_prepare
+0xffffff80086db7fc: ldp	x8, x9, [x28, #0x168]   ; kbase_ext_res_prepare
+0xffffff80086db800: mov	x1, x0   ; kbase_ext_res_prepare
+0xffffff80086db804: mov	x0, x22   ; kbase_ext_res_prepare
+0xffffff80086db808: str	x9, [x8, #8]   ; kbase_ext_res_prepare
+0xffffff80086db80c: str	x8, [x9]   ; kbase_ext_res_prepare
+0xffffff80086db810: stp	x24, x19, [x28, #0x168]   ; kbase_ext_res_prepare
+0xffffff80086db814: bl	#0xffffff8008cab44c   ; kbase_ext_res_prepare
+0xffffff80086db818: mov	x0, x21   ; kbase_ext_res_prepare
+0xffffff80086db81c: bl	#0xffffff80086da3bc   ; kbase_ext_res_prepare
+0xffffff80086db820: cbnz	w0, #0xffffff80086db83c   ; kbase_ext_res_prepare
+0xffffff80086db824: mov	x0, x21   ; kbase_ext_res_prepare
+0xffffff80086db828: bl	#0xffffff80086d9868   ; kbase_ext_res_prepare
+0xffffff80086db82c: mov	x0, x21   ; kbase_ext_res_prepare
+0xffffff80086db830: mov	x1, xzr   ; kbase_ext_res_prepare
+0xffffff80086db834: bl	#0xffffff80086ce10c   ; kbase_ext_res_prepare
+0xffffff80086db838: orr	w23, w23, w0   ; kbase_ext_res_prepare
+0xffffff80086db83c: mov	x0, x20   ; kbase_ext_res_prepare
+0xffffff80086db840: bl	#0xffffff8008ca83d0   ; kbase_ext_res_prepare
+0xffffff80086db844: cmp	x26, x27   ; kbase_ext_res_prepare
+0xffffff80086db848: mov	x28, x27   ; kbase_ext_res_prepare
+0xffffff80086db84c: b.ne	#0xffffff80086db7c0   ; kbase_ext_res_prepare
+0xffffff80086db850: ldr	x0, [sp]   ; kbase_ext_res_prepare
+0xffffff80086db854: tbz	w23, #0, #0xffffff80086db870   ; kbase_ext_res_prepare
+0xffffff80086db858: mov	w8, #0x17ab   ; kbase_ext_res_prepare
+0xffffff80086db85c: ldrb	w8, [x0, x8]   ; kbase_ext_res_prepare
+0xffffff80086db860: mov	w9, #1   ; kbase_ext_res_prepare
+0xffffff80086db864: lsl	w8, w9, w8   ; kbase_ext_res_prepare
+0xffffff80086db868: sub	w1, w8, #1   ; kbase_ext_res_prepare
+0xffffff80086db86c: bl	#0xffffff80086d45dc   ; kbase_ext_res_prepare
+0xffffff80086db870: adrp	x9, #0xffffff80096d3000   ; kbase_ext_res_prepare
+0xffffff80086db874: ldr	x8, [sp, #0x18]   ; kbase_ext_res_prepare
+0xffffff80086db878: ldr	x9, [x9, #0xa48]   ; kbase_ext_res_prepare
+0xffffff80086db87c: cmp	x9, x8   ; kbase_ext_res_prepare
+0xffffff80086db880: b.ne	#0xffffff80086db8a4   ; kbase_ext_res_prepare
+0xffffff80086db884: ldp	x29, x30, [sp, #0x70]   ; kbase_ext_res_prepare
+0xffffff80086db888: ldp	x20, x19, [sp, #0x60]   ; kbase_ext_res_prepare
+0xffffff80086db88c: ldp	x22, x21, [sp, #0x50]   ; kbase_ext_res_prepare
+0xffffff80086db890: ldp	x24, x23, [sp, #0x40]   ; kbase_ext_res_prepare
+0xffffff80086db894: ldp	x26, x25, [sp, #0x30]   ; kbase_ext_res_prepare
+0xffffff80086db898: ldp	x28, x27, [sp, #0x20]   ; kbase_ext_res_prepare
+0xffffff80086db89c: add	sp, sp, #0x80   ; kbase_ext_res_prepare
+0xffffff80086db8a0: ret	   ; kbase_ext_res_prepare
+0xffffff80086db8a4: bl	#0xffffff80080a3ba4   ; kbase_ext_res_prepare
+0xffffff80086db8a8: str	x21, [sp, #-0x30]!   ; kbase_ext_res_prepare
+0xffffff80086db8ac: stp	x20, x19, [sp, #0x10]   ; kbase_ext_res_prepare
+0xffffff80086db8b0: stp	x29, x30, [sp, #0x20]   ; kbase_ext_res_prepare
+0xffffff80086db8b4: mov	x19, x0   ; kbase_ext_res_prepare
+0xffffff80086db8b8: ldr	x21, [x19, #0x38]   ; kbase_ext_res_prepare
+0xffffff80086db8bc: add	x29, sp, #0x20   ; kbase_ext_res_prepare
+0xffffff80086db8c0: add	x20, x21, #0x350   ; kbase_ext_res_prepare
+0xffffff80086db8c4: mov	x0, x20   ; kbase_ext_res_prepare
+0xffffff80086db8c8: bl	#0xffffff8008ca8158   ; kbase_ext_res_prepare
+0xffffff80086db8cc: mov	x0, x19   ; kbase_ext_res_prepare
+0xffffff80086db8d0: bl	#0xffffff80086d9868   ; kbase_ext_res_prepare
+0xffffff80086db8d4: mov	x0, x19   ; kbase_ext_res_prepare
+0xffffff80086db8d8: mov	x1, xzr   ; kbase_ext_res_prepare
+0xffffff80086db8dc: bl	#0xffffff80086ce10c   ; kbase_ext_res_prepare
+0xffffff80086db8e0: mov	w19, w0   ; kbase_ext_res_prepare
+0xffffff80086db8e4: mov	x0, x20   ; kbase_ext_res_prepare
+0xffffff80086db8e8: bl	#0xffffff8008ca83d0   ; kbase_ext_res_prepare
+0xffffff80086db8ec: tbz	w19, #0, #0xffffff80086db90c   ; kbase_ext_res_prepare
+0xffffff80086db8f0: ldr	x0, [x21, #8]   ; kbase_ext_res_prepare
+0xffffff80086db8f4: mov	w8, #0x17ab   ; kbase_ext_res_prepare
+0xffffff80086db8f8: mov	w9, #1   ; kbase_ext_res_prepare
+0xffffff80086db8fc: ldrb	w8, [x0, x8]   ; kbase_ext_res_prepare
+0xffffff80086db900: lsl	w8, w9, w8   ; kbase_ext_res_prepare
+0xffffff80086db904: sub	w1, w8, #1   ; kbase_ext_res_prepare
+0xffffff80086db908: bl	#0xffffff80086d45dc   ; kbase_ext_res_prepare
+0xffffff80086db90c: ldp	x29, x30, [sp, #0x20]   ; kbase_ext_res_prepare
+0xffffff80086db910: ldp	x20, x19, [sp, #0x10]   ; kbase_ext_res_prepare
+0xffffff80086db914: ldr	x21, [sp], #0x30   ; kbase_ext_res_prepare
+0xffffff80086db918: ret	   ; kbase_ext_res_prepare
+0xffffff80086db91c: sub	sp, sp, #0xd0   ; kbase_ext_res_prepare
+0xffffff80086db920: adrp	x8, #0xffffff80096d3000   ; kbase_ext_res_prepare
+0xffffff80086db924: ldr	x8, [x8, #0xa48]   ; kbase_ext_res_prepare
+0xffffff80086db928: stp	x29, x30, [sp, #0xc0]   ; kbase_ext_res_prepare
+0xffffff80086db92c: add	x29, sp, #0xc0   ; kbase_ext_res_prepare
+0xffffff80086db930: stp	x28, x27, [sp, #0x70]   ; kbase_ext_res_prepare
+0xffffff80086db934: stp	x26, x25, [sp, #0x80]   ; kbase_ext_res_prepare
+0xffffff80086db938: stp	x24, x23, [sp, #0x90]   ; kbase_ext_res_prepare
+0xffffff80086db93c: stp	x22, x21, [sp, #0xa0]   ; kbase_ext_res_prepare
+0xffffff80086db940: stp	x20, x19, [sp, #0xb0]   ; kbase_ext_res_prepare
+0xffffff80086db944: mov	x19, x0   ; kbase_ext_res_prepare
+0xffffff80086db948: stur	x8, [x29, #-0x58]   ; kbase_ext_res_prepare
+0xffffff80086db94c: ldr	x8, [x19, #0x38]   ; kbase_ext_res_prepare
+0xffffff80086db950: ldr	w21, [x19, #0xc8]   ; kbase_ext_res_prepare
+0xffffff80086db954: adrp	x1, #0xffffff8008fcd000   ; kbase_ext_res_prepare
+0xffffff80086db958: add	x1, x1, #0xe5c   ; kbase_ext_res_prepare
+0xffffff80086db95c: ldr	x8, [x8, #8]   ; kbase_ext_res_prepare
+0xffffff80086db960: ldr	x20, [x8, #0x20]   ; kbase_ext_res_prepare
+0xffffff80086db964: mov	x0, x20   ; kbase_ext_res_prepare
+0xffffff80086db968: bl	#0xffffff80084333b4   ; kbase_ext_res_prepare
+0xffffff80086db96c: ldrb	w8, [x19, #0x11c]   ; kbase_ext_res_prepare
+0xffffff80086db970: tbnz	w8, #0, #0xffffff80086db97c   ; kbase_ext_res_prepare
+0xffffff80086db974: mov	w20, wzr   ; kbase_ext_res_prepare
+0xffffff80086db978: b	#0xffffff80086dbb38   ; kbase_ext_res_prepare
+0xffffff80086db97c: ldr	x0, [x19, #0x38]   ; kbase_ext_res_prepare
+0xffffff80086db980: bl	#0xffffff80086c70e0   ; kbase_ext_res_prepare
+0xffffff80086db984: ldr	x0, [x19, #0x38]   ; kbase_ext_res_prepare
+0xffffff80086db988: ldr	x1, [x19, #0xc8]   ; kbase_ext_res_prepare
+0xffffff80086db98c: bl	#0xffffff80086c6338   ; kbase_ext_res_prepare
+0xffffff80086db990: cbz	x0, #0xffffff80086dbb2c   ; kbase_ext_res_prepare
+0xffffff80086db994: ldrb	w8, [x0, #0x48]   ; kbase_ext_res_prepare
+0xffffff80086db998: tbnz	w8, #0, #0xffffff80086dbb2c   ; kbase_ext_res_prepare
+0xffffff80086db99c: ldr	x8, [x0, #0x58]   ; kbase_ext_res_prepare
+0xffffff80086db9a0: ldr	x24, [x8, #0x18]   ; kbase_ext_res_prepare
+0xffffff80086db9a4: cbz	x24, #0xffffff80086dbb2c   ; kbase_ext_res_prepare
+0xffffff80086db9a8: and	w15, w21, #0xfff   ; kbase_ext_res_prepare
+0xffffff80086db9ac: ldr	x8, [x19, #0xc8]   ; kbase_ext_res_prepare
+0xffffff80086db9b0: mrs	x21, sp_el0   ; kbase_ext_res_prepare
+0xffffff80086db9b4: ldr	x9, [x0, #0x30]   ; kbase_ext_res_prepare
+0xffffff80086db9b8: ldr	w14, [x21, #0x18]   ; kbase_ext_res_prepare
+0xffffff80086db9bc: lsr	x8, x8, #0xc   ; kbase_ext_res_prepare
+0xffffff80086db9c0: adrp	x25, #0xffffff80096d3000   ; kbase_ext_res_prepare
+0xffffff80086db9c4: sub	x26, x8, x9   ; kbase_ext_res_prepare
+0xffffff80086db9c8: add	w8, w14, #1   ; kbase_ext_res_prepare
+0xffffff80086db9cc: ldr	x13, [x25, #0xa70]   ; kbase_ext_res_prepare
+0xffffff80086db9d0: ldr	x9, [x24, x26, lsl #3]   ; kbase_ext_res_prepare
+0xffffff80086db9d4: str	w8, [x21, #0x18]   ; kbase_ext_res_prepare
+0xffffff80086db9d8: ldr	w8, [x21, #0x9d0]   ; kbase_ext_res_prepare
+0xffffff80086db9dc: mov	w10, #0x1000   ; kbase_ext_res_prepare
+0xffffff80086db9e0: sub	x27, x10, x15   ; kbase_ext_res_prepare
+0xffffff80086db9e4: asr	x10, x13, #0xc   ; kbase_ext_res_prepare
+0xffffff80086db9e8: add	w8, w8, #1   ; kbase_ext_res_prepare
+0xffffff80086db9ec: str	w8, [x21, #0x9d0]   ; kbase_ext_res_prepare
+0xffffff80086db9f0: ldr	x8, [x25, #0xa70]   ; kbase_ext_res_prepare
+0xffffff80086db9f4: lsl	x10, x10, #6   ; kbase_ext_res_prepare
+0xffffff80086db9f8: lsr	x9, x9, #6   ; kbase_ext_res_prepare
+0xffffff80086db9fc: mov	x22, #0xc0000000   ; kbase_ext_res_prepare
+0xffffff80086dba00: and	x10, x10, #0xffffffffff000000   ; kbase_ext_res_prepare
+0xffffff80086dba04: and	x9, x9, #0x3ffffffffffffc0   ; kbase_ext_res_prepare
+0xffffff80086dba08: movk	x22, #0xffbd, lsl #32   ; kbase_ext_res_prepare
+0xffffff80086dba0c: sub	x9, x9, x10   ; kbase_ext_res_prepare
+0xffffff80086dba10: lsr	x10, x8, #0xc   ; kbase_ext_res_prepare
+0xffffff80086dba14: movk	x22, #0xffff, lsl #48   ; kbase_ext_res_prepare
+0xffffff80086dba18: mov	w12, #-0x40000000   ; kbase_ext_res_prepare
+0xffffff80086dba1c: and	w10, w10, #0x3fc0000   ; kbase_ext_res_prepare
+0xffffff80086dba20: sub	w10, w12, w10, lsl #6   ; kbase_ext_res_prepare
+0xffffff80086dba24: add	x9, x9, x22   ; kbase_ext_res_prepare
+0xffffff80086dba28: sub	w10, w9, w10   ; kbase_ext_res_prepare
+0xffffff80086dba2c: lsl	x10, x10, #6   ; kbase_ext_res_prepare
+0xffffff80086dba30: sub	x8, x10, x8   ; kbase_ext_res_prepare
+0xffffff80086dba34: ldr	x10, [x19, #0x38]   ; kbase_ext_res_prepare
+0xffffff80086dba38: ldr	x9, [x9, #0x30]   ; kbase_ext_res_prepare
+0xffffff80086dba3c: mov	w11, #0x28   ; kbase_ext_res_prepare
+0xffffff80086dba40: cmp	x27, #0x28   ; kbase_ext_res_prepare
+0xffffff80086dba44: ldr	x0, [x10, #8]   ; kbase_ext_res_prepare
+0xffffff80086dba48: csel	x28, x27, x11, lo   ; kbase_ext_res_prepare
+0xffffff80086dba4c: and	w12, w15, #0xfffffffc   ; kbase_ext_res_prepare
+0xffffff80086dba50: orr	x8, x8, #0xffffffc000000000   ; kbase_ext_res_prepare
+0xffffff80086dba54: add	x1, x9, x15   ; kbase_ext_res_prepare
+0xffffff80086dba58: mov	x2, x28   ; kbase_ext_res_prepare
+0xffffff80086dba5c: mov	w3, wzr   ; kbase_ext_res_prepare
+0xffffff80086dba60: add	x23, x8, x12   ; kbase_ext_res_prepare
+0xffffff80086dba64: str	x15, [sp, #0x28]   ; kbase_ext_res_prepare
+0xffffff80086dba68: bl	#0xffffff80086c62ac   ; kbase_ext_res_prepare
+0xffffff80086dba6c: add	x0, sp, #0x40   ; kbase_ext_res_prepare
+0xffffff80086dba70: mov	x1, x23   ; kbase_ext_res_prepare
+0xffffff80086dba74: mov	x2, x28   ; kbase_ext_res_prepare
+0xffffff80086dba78: str	x23, [sp, #0x10]   ; kbase_ext_res_prepare
+0xffffff80086dba7c: bl	#0xffffff80083a4000   ; kbase_ext_res_prepare
+0xffffff80086dba80: cmp	x27, #0x27   ; kbase_ext_res_prepare
+0xffffff80086dba84: stp	x24, x27, [sp, #0x30]   ; kbase_ext_res_prepare
+0xffffff80086dba88: stp	x28, x26, [sp, #0x18]   ; kbase_ext_res_prepare
+0xffffff80086dba8c: b.hi	#0xffffff80086dbb70   ; kbase_ext_res_prepare
+0xffffff80086dba90: ldr	w9, [x21, #0x18]   ; kbase_ext_res_prepare
+0xffffff80086dba94: add	x10, x24, x26, lsl #3   ; kbase_ext_res_prepare
+0xffffff80086dba98: ldr	x8, [x25, #0xa70]   ; kbase_ext_res_prepare
+0xffffff80086dba9c: ldr	x10, [x10, #8]   ; kbase_ext_res_prepare
+0xffffff80086dbaa0: add	w9, w9, #1   ; kbase_ext_res_prepare
+0xffffff80086dbaa4: str	w9, [x21, #0x18]   ; kbase_ext_res_prepare
+0xffffff80086dbaa8: ldr	w9, [x21, #0x9d0]   ; kbase_ext_res_prepare
+0xffffff80086dbaac: asr	x8, x8, #0xc   ; kbase_ext_res_prepare
+0xffffff80086dbab0: lsl	x8, x8, #6   ; kbase_ext_res_prepare
+0xffffff80086dbab4: lsr	x10, x10, #6   ; kbase_ext_res_prepare
+0xffffff80086dbab8: add	w9, w9, #1   ; kbase_ext_res_prepare
+0xffffff80086dbabc: str	w9, [x21, #0x9d0]   ; kbase_ext_res_prepare
+0xffffff80086dbac0: ldr	x9, [x25, #0xa70]   ; kbase_ext_res_prepare
+0xffffff80086dbac4: and	x8, x8, #0xffffffffff000000   ; kbase_ext_res_prepare
+0xffffff80086dbac8: and	x10, x10, #0x3ffffffffffffc0   ; kbase_ext_res_prepare
+0xffffff80086dbacc: sub	x8, x22, x8   ; kbase_ext_res_prepare
+0xffffff80086dbad0: add	x8, x8, x10   ; kbase_ext_res_prepare
+0xffffff80086dbad4: ldr	x10, [x19, #0x38]   ; kbase_ext_res_prepare
+0xffffff80086dbad8: lsr	x11, x9, #0xc   ; kbase_ext_res_prepare
+0xffffff80086dbadc: and	w11, w11, #0x3fc0000   ; kbase_ext_res_prepare
+0xffffff80086dbae0: sub	w11, w22, w11, lsl #6   ; kbase_ext_res_prepare
+0xffffff80086dbae4: sub	w11, w8, w11   ; kbase_ext_res_prepare
+0xffffff80086dbae8: ldr	x1, [x8, #0x30]   ; kbase_ext_res_prepare
+0xffffff80086dbaec: ldr	x0, [x10, #8]   ; kbase_ext_res_prepare
+0xffffff80086dbaf0: lsl	x8, x11, #6   ; kbase_ext_res_prepare
+0xffffff80086dbaf4: sub	x8, x8, x9   ; kbase_ext_res_prepare
+0xffffff80086dbaf8: mov	w9, #0x28   ; kbase_ext_res_prepare
+0xffffff80086dbafc: sub	x22, x9, x28   ; kbase_ext_res_prepare
+0xffffff80086dbb00: mov	x2, x22   ; kbase_ext_res_prepare
+0xffffff80086dbb04: mov	w3, wzr   ; kbase_ext_res_prepare
+0xffffff80086dbb08: orr	x23, x8, #0xffffffc000000000   ; kbase_ext_res_prepare
+0xffffff80086dbb0c: bl	#0xffffff80086c62ac   ; kbase_ext_res_prepare
+0xffffff80086dbb10: add	x8, sp, #0x40   ; kbase_ext_res_prepare
+0xffffff80086dbb14: add	x0, x8, x28   ; kbase_ext_res_prepare
+0xffffff80086dbb18: mov	x1, x23   ; kbase_ext_res_prepare
+0xffffff80086dbb1c: mov	x2, x22   ; kbase_ext_res_prepare
+0xffffff80086dbb20: str	x23, [sp, #8]   ; kbase_ext_res_prepare
+0xffffff80086dbb24: bl	#0xffffff80083a4000   ; kbase_ext_res_prepare
+0xffffff80086dbb28: b	#0xffffff80086dbb74   ; kbase_ext_res_prepare
+0xffffff80086dbb2c: mov	w20, wzr   ; kbase_ext_res_prepare
+0xffffff80086dbb30: ldr	x0, [x19, #0x38]   ; kbase_ext_res_prepare
+0xffffff80086dbb34: bl	#0xffffff80086c70f8   ; kbase_ext_res_prepare
+0xffffff80086dbb38: adrp	x9, #0xffffff80096d3000   ; kbase_ext_res_prepare
+0xffffff80086dbb3c: ldur	x8, [x29, #-0x58]   ; kbase_ext_res_prepare
+0xffffff80086dbb40: ldr	x9, [x9, #0xa48]   ; kbase_ext_res_prepare
+0xffffff80086dbb44: cmp	x9, x8   ; kbase_ext_res_prepare
+0xffffff80086dbb48: b.ne	#0xffffff80086dbe38   ; kbase_ext_res_prepare
+0xffffff80086dbb4c: mov	w0, w20   ; kbase_ext_res_prepare
+0xffffff80086dbb50: ldp	x29, x30, [sp, #0xc0]   ; kbase_ext_res_prepare
+0xffffff80086dbb54: ldp	x20, x19, [sp, #0xb0]   ; kbase_ext_res_prepare
+0xffffff80086dbb58: ldp	x22, x21, [sp, #0xa0]   ; kbase_ext_res_prepare
+0xffffff80086dbb5c: ldp	x24, x23, [sp, #0x90]   ; kbase_ext_res_prepare
+0xffffff80086dbb60: ldp	x26, x25, [sp, #0x80]   ; kbase_ext_res_prepare
+0xffffff80086dbb64: ldp	x28, x27, [sp, #0x70]   ; kbase_ext_res_prepare
+0xffffff80086dbb68: add	sp, sp, #0xd0   ; kbase_ext_res_prepare
+0xffffff80086dbb6c: ret	   ; kbase_ext_res_prepare
+0xffffff80086dbb70: str	xzr, [sp, #8]   ; kbase_ext_res_prepare
+0xffffff80086dbb74: ldp	w8, w9, [sp, #0x60]   ; kbase_ext_res_prepare
+0xffffff80086dbb78: ldp	w3, w27, [sp, #0x44]   ; kbase_ext_res_prepare
+0xffffff80086dbb7c: ldr	w2, [sp, #0x40]   ; kbase_ext_res_prepare
+0xffffff80086dbb80: adrp	x1, #0xffffff8008fcd000   ; kbase_ext_res_prepare
+0xffffff80086dbb84: and	w26, w8, #0xfff   ; kbase_ext_res_prepare
+0xffffff80086dbb88: and	w25, w8, #0xfff0000   ; kbase_ext_res_prepare
+0xffffff80086dbb8c: and	w24, w9, #0xfff   ; kbase_ext_res_prepare
+0xffffff80086dbb90: and	w28, w9, #0xfff0000   ; kbase_ext_res_prepare
+0xffffff80086dbb94: add	x1, x1, #0xe93   ; kbase_ext_res_prepare
+0xffffff80086dbb98: mov	x0, x20   ; kbase_ext_res_prepare
+0xffffff80086dbb9c: mov	w4, w27   ; kbase_ext_res_prepare
+0xffffff80086dbba0: mov	w5, w26   ; kbase_ext_res_prepare
+0xffffff80086dbba4: mov	w6, w25   ; kbase_ext_res_prepare
+0xffffff80086dbba8: mov	w7, w24   ; kbase_ext_res_prepare
+0xffffff80086dbbac: and	w22, w27, #0xfff   ; kbase_ext_res_prepare
+0xffffff80086dbbb0: and	w23, w27, #0xfff0000   ; kbase_ext_res_prepare
+0xffffff80086dbbb4: str	w28, [sp]   ; kbase_ext_res_prepare
+0xffffff80086dbbb8: bl	#0xffffff80084333b4   ; kbase_ext_res_prepare
+0xffffff80086dbbbc: cmp	w22, w26   ; kbase_ext_res_prepare
+0xffffff80086dbbc0: str	w27, [sp, #0x44]   ; kbase_ext_res_prepare
+0xffffff80086dbbc4: b.hs	#0xffffff80086dbbf8   ; kbase_ext_res_prepare
+0xffffff80086dbbc8: adrp	x1, #0xffffff8008fcd000   ; kbase_ext_res_prepare
+0xffffff80086dbbcc: orr	w27, w23, w26   ; kbase_ext_res_prepare
+0xffffff80086dbbd0: add	x1, x1, #0xf1f   ; kbase_ext_res_prepare
+0xffffff80086dbbd4: mov	x0, x20   ; kbase_ext_res_prepare
+0xffffff80086dbbd8: mov	w2, w22   ; kbase_ext_res_prepare
+0xffffff80086dbbdc: mov	w3, w26   ; kbase_ext_res_prepare
+0xffffff80086dbbe0: str	w27, [sp, #0x44]   ; kbase_ext_res_prepare
+0xffffff80086dbbe4: bl	#0xffffff80084333b4   ; kbase_ext_res_prepare
+0xffffff80086dbbe8: mov	w8, #1   ; kbase_ext_res_prepare
+0xffffff80086dbbec: cmp	w23, w25   ; kbase_ext_res_prepare
+0xffffff80086dbbf0: b.lo	#0xffffff80086dbc04   ; kbase_ext_res_prepare
+0xffffff80086dbbf4: b	#0xffffff80086dbc28   ; kbase_ext_res_prepare
+0xffffff80086dbbf8: mov	w8, wzr   ; kbase_ext_res_prepare
+0xffffff80086dbbfc: cmp	w23, w25   ; kbase_ext_res_prepare
+0xffffff80086dbc00: b.hs	#0xffffff80086dbc28   ; kbase_ext_res_prepare
+0xffffff80086dbc04: adrp	x1, #0xffffff8008fcd000   ; kbase_ext_res_prepare
+0xffffff80086dbc08: orr	w27, w22, w25   ; kbase_ext_res_prepare
+0xffffff80086dbc0c: add	x1, x1, #0xf5a   ; kbase_ext_res_prepare
+0xffffff80086dbc10: mov	x0, x20   ; kbase_ext_res_prepare
+0xffffff80086dbc14: mov	w2, w23   ; kbase_ext_res_prepare
+0xffffff80086dbc18: mov	w3, w25   ; kbase_ext_res_prepare
+0xffffff80086dbc1c: str	w27, [sp, #0x44]   ; kbase_ext_res_prepare
+0xffffff80086dbc20: bl	#0xffffff80084333b4   ; kbase_ext_res_prepare
+0xffffff80086dbc24: mov	w8, #1   ; kbase_ext_res_prepare
+0xffffff80086dbc28: cmp	w22, w24   ; kbase_ext_res_prepare
+0xffffff80086dbc2c: b.ls	#0xffffff80086dbc74   ; kbase_ext_res_prepare
+0xffffff80086dbc30: adrp	x1, #0xffffff8008fcd000   ; kbase_ext_res_prepare
+0xffffff80086dbc34: orr	w27, w23, w24   ; kbase_ext_res_prepare
+0xffffff80086dbc38: add	x1, x1, #0xf95   ; kbase_ext_res_prepare
+0xffffff80086dbc3c: mov	x0, x20   ; kbase_ext_res_prepare
+0xffffff80086dbc40: mov	w2, w22   ; kbase_ext_res_prepare
+0xffffff80086dbc44: mov	w3, w24   ; kbase_ext_res_prepare
+0xffffff80086dbc48: str	w27, [sp, #0x44]   ; kbase_ext_res_prepare
+0xffffff80086dbc4c: bl	#0xffffff80084333b4   ; kbase_ext_res_prepare
+0xffffff80086dbc50: mov	w8, #1   ; kbase_ext_res_prepare
+0xffffff80086dbc54: cmp	w23, w28   ; kbase_ext_res_prepare
+0xffffff80086c9d90: sub	sp, sp, #0x70   ; kbase_map_external_resource
+0xffffff80086c9d94: stp	x28, x27, [sp, #0x10]   ; kbase_map_external_resource
+0xffffff80086c9d98: stp	x26, x25, [sp, #0x20]   ; kbase_map_external_resource
+0xffffff80086c9d9c: stp	x24, x23, [sp, #0x30]   ; kbase_map_external_resource
+0xffffff80086c9da0: stp	x22, x21, [sp, #0x40]   ; kbase_map_external_resource
+0xffffff80086c9da4: stp	x20, x19, [sp, #0x50]   ; kbase_map_external_resource
+0xffffff80086c9da8: stp	x29, x30, [sp, #0x60]   ; kbase_map_external_resource
+0xffffff80086c9dac: mov	x19, x1   ; kbase_map_external_resource
+0xffffff80086c9db0: ldr	x8, [x19, #0x60]   ; kbase_map_external_resource
+0xffffff80086c9db4: mov	x20, x0   ; kbase_map_external_resource
+0xffffff80086c9db8: add	x29, sp, #0x60   ; kbase_map_external_resource
+0xffffff80086c9dbc: ldr	w9, [x8, #0x50]   ; kbase_map_external_resource
+0xffffff80086c9dc0: cmp	w9, #1   ; kbase_map_external_resource
+0xffffff80086c9dc4: b.eq	#0xffffff80086c9de4   ; kbase_map_external_resource
+0xffffff80086c9dc8: cmp	w9, #2   ; kbase_map_external_resource
+0xffffff80086c9dcc: b.ne	#0xffffff80086c9ddc   ; kbase_map_external_resource
+0xffffff80086c9dd0: ldr	x9, [x8, #0x90]   ; kbase_map_external_resource
+0xffffff80086c9dd4: cmp	x9, x2   ; kbase_map_external_resource
+0xffffff80086c9dd8: b.eq	#0xffffff80086c9f6c   ; kbase_map_external_resource
+0xffffff80086c9ddc: mov	x20, xzr   ; kbase_map_external_resource
+0xffffff80086c9de0: b	#0xffffff80086ca300   ; kbase_map_external_resource
+0xffffff80086c9de4: ldr	w9, [x8, #0x78]   ; kbase_map_external_resource
+0xffffff80086c9de8: add	w9, w9, #1   ; kbase_map_external_resource
+0xffffff80086c9dec: str	w9, [x8, #0x78]   ; kbase_map_external_resource
+0xffffff80086c9df0: ldr	x28, [x19, #0x60]   ; kbase_map_external_resource
+0xffffff80086c9df4: ldr	w8, [x28, #0x78]   ; kbase_map_external_resource
+0xffffff80086c9df8: cmp	w8, #1   ; kbase_map_external_resource
+0xffffff80086c9dfc: b.ne	#0xffffff80086ca2d8   ; kbase_map_external_resource
+0xffffff80086c9e00: ldr	x0, [x28, #0x70]   ; kbase_map_external_resource
+0xffffff80086c9e04: mov	w1, wzr   ; kbase_map_external_resource
+0xffffff80086c9e08: bl	#0xffffff80087fb9dc   ; kbase_map_external_resource
+0xffffff80086c9e0c: mov	x21, x0   ; kbase_map_external_resource
+0xffffff80086c9e10: cbz	x21, #0xffffff80086ca1b4   ; kbase_map_external_resource
+0xffffff80086c9e14: cmn	x21, #1, lsl #12   ; kbase_map_external_resource
+0xffffff80086c9e18: b.hi	#0xffffff80086ca1b4   ; kbase_map_external_resource
+0xffffff80086c9e1c: str	x21, [x28, #0x80]   ; kbase_map_external_resource
+0xffffff80086c9e20: ldr	w8, [x21, #8]   ; kbase_map_external_resource
+0xffffff80086c9e24: str	x20, [sp]   ; kbase_map_external_resource
+0xffffff80086c9e28: cbz	w8, #0xffffff80086ca140   ; kbase_map_external_resource
+0xffffff80086c9e2c: ldr	x8, [x19, #0x60]   ; kbase_map_external_resource
+0xffffff80086c9e30: ldr	x22, [x21]   ; kbase_map_external_resource
+0xffffff80086c9e34: mov	w23, wzr   ; kbase_map_external_resource
+0xffffff80086c9e38: mov	x25, xzr   ; kbase_map_external_resource
+0xffffff80086c9e3c: ldr	x24, [x8, #0x18]   ; kbase_map_external_resource
+0xffffff80086c9e40: adrp	x20, #0xffffff8009813000   ; kbase_map_external_resource
+0xffffff80086c9e44: ldr	w3, [x22, #0x18]   ; kbase_map_external_resource
+0xffffff80086c9e48: add	x8, x3, #0xfff   ; kbase_map_external_resource
+0xffffff80086c9e4c: tst	x3, #0xfff   ; kbase_map_external_resource
+0xffffff80086c9e50: lsr	x26, x8, #0xc   ; kbase_map_external_resource
+0xffffff80086c9e54: b.ne	#0xffffff80086c9edc   ; kbase_map_external_resource
+0xffffff80086c9e58: ldr	x3, [x22, #0x10]   ; kbase_map_external_resource
+0xffffff80086c9e5c: tst	x3, #0xfff   ; kbase_map_external_resource
+0xffffff80086c9e60: b.ne	#0xffffff80086c9f10   ; kbase_map_external_resource
+0xffffff80086c9e64: cbz	x26, #0xffffff80086c9f44   ; kbase_map_external_resource
+0xffffff80086c9e68: mov	x8, xzr   ; kbase_map_external_resource
+0xffffff80086c9e6c: mov	x9, xzr   ; kbase_map_external_resource
+0xffffff80086c9e70: ldr	x10, [x19, #0x38]   ; kbase_map_external_resource
+0xffffff80086c9e74: add	x27, x25, x9   ; kbase_map_external_resource
+0xffffff80086c9e78: cmp	x27, x10   ; kbase_map_external_resource
+0xffffff80086c9e7c: b.hs	#0xffffff80086c9ea8   ; kbase_map_external_resource
+0xffffff80086c9e80: ldr	x10, [x22, #0x10]   ; kbase_map_external_resource
+0xffffff80086c9e84: add	x9, x9, #1   ; kbase_map_external_resource
+0xffffff80086c9e88: cmp	x9, x26   ; kbase_map_external_resource
+0xffffff80086c9e8c: add	x10, x8, x10   ; kbase_map_external_resource
+0xffffff80086c9e90: and	x10, x10, #0xfffffffffffff000   ; kbase_map_external_resource
+0xffffff80086c9e94: str	x10, [x24], #8   ; kbase_map_external_resource
+0xffffff80086c9e98: add	x8, x8, #1, lsl #12   ; kbase_map_external_resource
+0xffffff80086c9e9c: b.lo	#0xffffff80086c9e70   ; kbase_map_external_resource
+0xffffff80086c9ea0: add	x27, x25, x9   ; kbase_map_external_resource
+0xffffff80086c9ea4: b	#0xffffff80086c9f48   ; kbase_map_external_resource
+0xffffff80086c9ea8: ldrb	w8, [x20, #0x14a]   ; kbase_map_external_resource
+0xffffff80086c9eac: tbnz	w8, #0, #0xffffff80086c9f48   ; kbase_map_external_resource
+0xffffff80086c9eb0: ldr	x8, [x28, #0x68]   ; kbase_map_external_resource
+0xffffff80086c9eb4: adrp	x0, #0xffffff8008fcb000   ; kbase_map_external_resource
+0xffffff80086c9eb8: adrp	x2, #0xffffff8008fcc000   ; kbase_map_external_resource
+0xffffff80086c9ebc: mov	w1, #0xd60   ; kbase_map_external_resource
+0xffffff80086c9ec0: ldr	x3, [x8]   ; kbase_map_external_resource
+0xffffff80086c9ec4: add	x0, x0, #0x988   ; kbase_map_external_resource
+0xffffff80086c9ec8: add	x2, x2, #0x25a   ; kbase_map_external_resource
+0xffffff80086c9ecc: bl	#0xffffff80080a3920   ; kbase_map_external_resource
+0xffffff80086c9ed0: mov	w8, #1   ; kbase_map_external_resource
+0xffffff80086c9ed4: strb	w8, [x20, #0x14a]   ; kbase_map_external_resource
+0xffffff80086c9ed8: b	#0xffffff80086c9f48   ; kbase_map_external_resource
+0xffffff80086c9edc: adrp	x8, #0xffffff8009813000   ; kbase_map_external_resource
+0xffffff80086c9ee0: ldrb	w8, [x8, #0x148]   ; kbase_map_external_resource
+0xffffff80086c9ee4: tbnz	w8, #0, #0xffffff80086c9e58   ; kbase_map_external_resource
+0xffffff80086c9ee8: adrp	x0, #0xffffff8008fcb000   ; kbase_map_external_resource
+0xffffff80086c9eec: adrp	x2, #0xffffff8008fcc000   ; kbase_map_external_resource
+0xffffff80086c9ef0: mov	w1, #0xd54   ; kbase_map_external_resource
+0xffffff80086c9ef4: add	x0, x0, #0x988   ; kbase_map_external_resource
+0xffffff80086c9ef8: add	x2, x2, #0x1f5   ; kbase_map_external_resource
+0xffffff80086c9efc: bl	#0xffffff80080a3920   ; kbase_map_external_resource
+0xffffff80086c9f00: mov	w8, #1   ; kbase_map_external_resource
+0xffffff80086c9f04: adrp	x9, #0xffffff8009813000   ; kbase_map_external_resource
+0xffffff80086c9f08: strb	w8, [x9, #0x148]   ; kbase_map_external_resource
+0xffffff80086c9f0c: b	#0xffffff80086c9e58   ; kbase_map_external_resource
+0xffffff80086c9f10: adrp	x8, #0xffffff8009813000   ; kbase_map_external_resource
+0xffffff80086c9f14: ldrb	w8, [x8, #0x149]   ; kbase_map_external_resource
+0xffffff80086c9f18: tbnz	w8, #0, #0xffffff80086c9e64   ; kbase_map_external_resource
+0xffffff80086c9f1c: adrp	x0, #0xffffff8008fcb000   ; kbase_map_external_resource
+0xffffff80086c9f20: adrp	x2, #0xffffff8008fcc000   ; kbase_map_external_resource
+0xffffff80086c9f24: mov	w1, #0xd58   ; kbase_map_external_resource
+0xffffff80086c9f28: add	x0, x0, #0x988   ; kbase_map_external_resource
+0xffffff80086c9f2c: add	x2, x2, #0x226   ; kbase_map_external_resource
+0xffffff80086c9f30: bl	#0xffffff80080a3920   ; kbase_map_external_resource
+0xffffff80086c9f34: mov	w8, #1   ; kbase_map_external_resource
+0xffffff80086c9f38: adrp	x9, #0xffffff8009813000   ; kbase_map_external_resource
+0xffffff80086c9f3c: strb	w8, [x9, #0x149]   ; kbase_map_external_resource
+0xffffff80086c9f40: cbnz	x26, #0xffffff80086c9e68   ; kbase_map_external_resource
+0xffffff80086c9f44: mov	x27, x25   ; kbase_map_external_resource
+0xffffff80086c9f48: mov	x0, x22   ; kbase_map_external_resource
+0xffffff80086c9f4c: add	w23, w23, #1   ; kbase_map_external_resource
+0xffffff80086c9f50: bl	#0xffffff80083b8c2c   ; kbase_map_external_resource
+0xffffff80086c9f54: ldr	w8, [x21, #8]   ; kbase_map_external_resource
+0xffffff80086c9f58: mov	x22, x0   ; kbase_map_external_resource
+0xffffff80086c9f5c: mov	x25, x27   ; kbase_map_external_resource
+0xffffff80086c9f60: cmp	w23, w8   ; kbase_map_external_resource
+0xffffff80086c9f64: b.lo	#0xffffff80086c9e44   ; kbase_map_external_resource
+0xffffff80086c9f68: b	#0xffffff80086ca144   ; kbase_map_external_resource
+0xffffff80086c9f6c: ldr	w9, [x8, #0x88]   ; kbase_map_external_resource
+0xffffff80086c9f70: add	w9, w9, #1   ; kbase_map_external_resource
+0xffffff80086c9f74: str	w9, [x8, #0x88]   ; kbase_map_external_resource
+0xffffff80086c9f78: ldr	x27, [x19, #0x60]   ; kbase_map_external_resource
+0xffffff80086c9f7c: ldr	w8, [x27, #0x88]   ; kbase_map_external_resource
+0xffffff80086c9f80: cmp	w8, #1   ; kbase_map_external_resource
+0xffffff80086c9f84: b.ne	#0xffffff80086ca2d8   ; kbase_map_external_resource
+0xffffff80086c9f88: ldr	x8, [x27, #0x18]   ; kbase_map_external_resource
+0xffffff80086c9f8c: ldr	x24, [x27, #0x68]   ; kbase_map_external_resource
+0xffffff80086c9f90: ldr	x1, [x27, #0x90]   ; kbase_map_external_resource
+0xffffff80086c9f94: mov	x0, xzr   ; kbase_map_external_resource
+0xffffff80086c9f98: str	x8, [sp, #8]   ; kbase_map_external_resource
+0xffffff80086c9f9c: ldr	w8, [x19, #0x48]   ; kbase_map_external_resource
+0xffffff80086c9fa0: ldp	x3, x21, [x27, #0x78]   ; kbase_map_external_resource
+0xffffff80086c9fa4: mov	x2, x24   ; kbase_map_external_resource
+0xffffff80086c9fa8: mov	w5, wzr   ; kbase_map_external_resource
+0xffffff80086c9fac: and	w4, w8, #6   ; kbase_map_external_resource
+0xffffff80086c9fb0: mov	x6, x21   ; kbase_map_external_resource
+0xffffff80086c9fb4: mov	x7, xzr   ; kbase_map_external_resource
+0xffffff80086c9fb8: bl	#0xffffff80081dc0c4   ; kbase_map_external_resource
+0xffffff80086c9fbc: mov	x22, x0   ; kbase_map_external_resource
+0xffffff80086c9fc0: cmp	x22, #0   ; kbase_map_external_resource
+0xffffff80086c9fc4: b.le	#0xffffff80086ca214   ; kbase_map_external_resource
+0xffffff80086c9fc8: ldr	x8, [x27, #0x78]   ; kbase_map_external_resource
+0xffffff80086c9fcc: cmp	x22, x8   ; kbase_map_external_resource
+0xffffff80086c9fd0: b.ne	#0xffffff80086ca12c   ; kbase_map_external_resource
+0xffffff80086c9fd4: ldr	x8, [x20, #8]   ; kbase_map_external_resource
+0xffffff80086c9fd8: ldr	x23, [x27, #0x70]   ; kbase_map_external_resource
+0xffffff80086c9fdc: and	x2, x24, #0xfff   ; kbase_map_external_resource
+0xffffff80086c9fe0: mov	x28, xzr   ; kbase_map_external_resource
+0xffffff80086c9fe4: ldr	x24, [x8, #0x20]   ; kbase_map_external_resource
+0xffffff80086c9fe8: str	x20, [sp]   ; kbase_map_external_resource
+0xffffff80086c9fec: mov	x20, x21   ; kbase_map_external_resource
+0xffffff80086c9ff0: ldr	x1, [x20]   ; kbase_map_external_resource
+0xffffff80086c9ff4: mov	w8, #0x1000   ; kbase_map_external_resource
+0xffffff80086c9ff8: sub	x8, x8, x2   ; kbase_map_external_resource
+0xffffff80086c9ffc: cmp	x8, x23   ; kbase_map_external_resource
+0xffffff80086ca000: csel	x25, x8, x23, lo   ; kbase_map_external_resource
+0xffffff80086ca004: cbz	x24, #0xffffff80086ca070   ; kbase_map_external_resource
+0xffffff80086ca008: ldr	x8, [x24, #0x210]   ; kbase_map_external_resource
+0xffffff80086ca00c: cbnz	x8, #0xffffff80086ca018   ; kbase_map_external_resource
+0xffffff80086ca010: adrp	x8, #0xffffff80096e4000   ; kbase_map_external_resource
+0xffffff80086ca014: add	x8, x8, #0xcf0   ; kbase_map_external_resource
+0xffffff80086ca018: ldr	x8, [x8, #0x20]   ; kbase_map_external_resource
+0xffffff80086ca01c: mov	x0, x24   ; kbase_map_external_resource
+0xffffff80086ca020: mov	x3, x25   ; kbase_map_external_resource
+0xffffff80086ca024: mov	w4, wzr   ; kbase_map_external_resource
+0xffffff80086ca028: mov	x5, xzr   ; kbase_map_external_resource
+0xffffff80086ca02c: blr	x8   ; kbase_map_external_resource
+0xffffff80086ca030: ldr	x8, [x24, #0x210]   ; kbase_map_external_resource
+0xffffff80086ca034: mov	x26, x0   ; kbase_map_external_resource
+0xffffff80086ca038: cbz	x8, #0xffffff80086ca094   ; kbase_map_external_resource
+0xffffff80086ca03c: ldr	x8, [x8, #0x60]   ; kbase_map_external_resource
+0xffffff80086ca040: cbz	x8, #0xffffff80086ca0a4   ; kbase_map_external_resource
+0xffffff80086ca044: cbz	x24, #0xffffff80086ca050   ; kbase_map_external_resource
+0xffffff80086ca048: ldr	x8, [x24, #0x210]   ; kbase_map_external_resource
+0xffffff80086ca04c: cbnz	x8, #0xffffff80086ca058   ; kbase_map_external_resource
+0xffffff80086ca050: adrp	x8, #0xffffff80096e4000   ; kbase_map_external_resource
+0xffffff80086ca054: add	x8, x8, #0xcf0   ; kbase_map_external_resource
+0xffffff80086ca058: ldr	x8, [x8, #0x60]   ; kbase_map_external_resource
+0xffffff80086ca05c: mov	x0, x24   ; kbase_map_external_resource
+0xffffff80086ca060: mov	x1, x26   ; kbase_map_external_resource
+0xffffff80086ca064: blr	x8   ; kbase_map_external_resource
+0xffffff80086ca068: cbz	w0, #0xffffff80086ca0b0   ; kbase_map_external_resource
+0xffffff80086ca06c: b	#0xffffff80086ca220   ; kbase_map_external_resource
+0xffffff80086ca070: adrp	x8, #0xffffff80096e4000   ; kbase_map_external_resource
+0xffffff80086ca074: add	x8, x8, #0xcf0   ; kbase_map_external_resource
+0xffffff80086ca078: ldr	x8, [x8, #0x20]   ; kbase_map_external_resource
+0xffffff80086ca07c: mov	x0, xzr   ; kbase_map_external_resource
+0xffffff80086ca080: mov	x3, x25   ; kbase_map_external_resource
+0xffffff80086ca084: mov	w4, wzr   ; kbase_map_external_resource
+0xffffff80086ca088: mov	x5, xzr   ; kbase_map_external_resource
+0xffffff80086ca08c: blr	x8   ; kbase_map_external_resource
+0xffffff80086ca090: mov	x26, x0   ; kbase_map_external_resource
+0xffffff80086ca094: adrp	x8, #0xffffff80096e4000   ; kbase_map_external_resource
+0xffffff80086ca098: add	x8, x8, #0xcf0   ; kbase_map_external_resource
+0xffffff80086ca09c: ldr	x8, [x8, #0x60]   ; kbase_map_external_resource
+0xffffff80086ca0a0: cbnz	x8, #0xffffff80086ca044   ; kbase_map_external_resource
+0xffffff80086ca0a4: cmn	x26, #1   ; kbase_map_external_resource
+0xffffff80086ca0a8: cset	w0, eq   ; kbase_map_external_resource
+0xffffff80086ca0ac: cbnz	w0, #0xffffff80086ca220   ; kbase_map_external_resource
+0xffffff80086ca0b0: ldr	x8, [x27, #0x98]   ; kbase_map_external_resource
+0xffffff80086ca0b4: lsl	x9, x28, #3   ; kbase_map_external_resource
+0xffffff80086ca0b8: adrp	x10, #0xffffff80096d3000   ; kbase_map_external_resource
+0xffffff80086ca0bc: mov	x11, #0xc0000000   ; kbase_map_external_resource
+0xffffff80086ca0c0: str	x26, [x8, x9]   ; kbase_map_external_resource
+0xffffff80086ca0c4: ldr	x8, [x20], #8   ; kbase_map_external_resource
+0xffffff80086ca0c8: ldr	x10, [x10, #0xa70]   ; kbase_map_external_resource
+0xffffff80086ca0cc: movk	x11, #0xffbd, lsl #32   ; kbase_map_external_resource
+0xffffff80086ca0d0: movk	x11, #0xffff, lsl #48   ; kbase_map_external_resource
+0xffffff80086ca0d4: add	x28, x28, #1   ; kbase_map_external_resource
+0xffffff80086ca0d8: lsr	x10, x10, #6   ; kbase_map_external_resource
+0xffffff80086ca0dc: and	x10, x10, #0x3ffffffff000000   ; kbase_map_external_resource
+0xffffff80086ca0e0: sub	x10, x11, x10   ; kbase_map_external_resource
+0xffffff80086ca0e4: sub	x8, x8, x10   ; kbase_map_external_resource
+0xffffff80086ca0e8: ldr	x10, [sp, #8]   ; kbase_map_external_resource
+0xffffff80086ca0ec: lsl	x8, x8, #6   ; kbase_map_external_resource
+0xffffff80086ca0f0: mov	x2, xzr   ; kbase_map_external_resource
+0xffffff80086ca0f4: cmp	x28, x22   ; kbase_map_external_resource
+0xffffff80086ca0f8: and	x8, x8, #0xfffffffffffff000   ; kbase_map_external_resource
+0xffffff80086ca0fc: sub	x23, x23, x25   ; kbase_map_external_resource
+0xffffff80086ca100: str	x8, [x10, x9]   ; kbase_map_external_resource
+0xffffff80086ca104: b.lt	#0xffffff80086c9ff0   ; kbase_map_external_resource
+0xffffff80086ca108: ldr	x25, [sp]   ; kbase_map_external_resource
+0xffffff80086ca10c: str	x22, [x27, #0x10]   ; kbase_map_external_resource
+0xffffff80086ca110: ldr	x8, [x19, #0x58]   ; kbase_map_external_resource
+0xffffff80086ca114: ldr	x2, [x19, #0x30]   ; kbase_map_external_resource
+0xffffff80086ca118: ldr	x0, [x25, #8]   ; kbase_map_external_resource
+0xffffff80086ca11c: add	x1, x25, #0x10   ; kbase_map_external_resource
+0xffffff80086ca120: cbz	x8, #0xffffff80086ca230   ; kbase_map_external_resource
+0xffffff80086ca124: ldr	x4, [x8, #0x10]   ; kbase_map_external_resource
+0xffffff80086ca128: b	#0xffffff80086ca234   ; kbase_map_external_resource
+0xffffff80086ca12c: ldr	x0, [x21], #8   ; kbase_map_external_resource
+0xffffff80086ca130: bl	#0xffffff80081bec3c   ; kbase_map_external_resource
+0xffffff80086ca134: subs	x22, x22, #1   ; kbase_map_external_resource
+0xffffff80086ca138: b.ne	#0xffffff80086ca12c   ; kbase_map_external_resource
+0xffffff80086ca13c: b	#0xffffff80086ca2c0   ; kbase_map_external_resource
+0xffffff80086ca140: mov	x27, xzr   ; kbase_map_external_resource
+0xffffff80086ca144: ldr	x9, [x19, #0x48]   ; kbase_map_external_resource
+0xffffff80086ca148: ldr	x8, [x19, #0x38]   ; kbase_map_external_resource
+0xffffff80086ca14c: tbnz	w9, #0x15, #0xffffff80086ca158   ; kbase_map_external_resource
+0xffffff80086ca150: cmp	x27, x8   ; kbase_map_external_resource
+0xffffff80086ca154: b.lo	#0xffffff80086ca34c   ; kbase_map_external_resource
+0xffffff80086ca158: str	x8, [x28, #0x10]   ; kbase_map_external_resource
+0xffffff80086ca15c: ldr	x22, [sp]   ; kbase_map_external_resource
+0xffffff80086ca160: ldr	x9, [x19, #0x60]   ; kbase_map_external_resource
+0xffffff80086ca164: mov	w8, #0x2dcc   ; kbase_map_external_resource
+0xffffff80086ca168: movk	w8, #2, lsl #16   ; kbase_map_external_resource
+0xffffff80086ca16c: ldr	x10, [x19, #0x48]   ; kbase_map_external_resource
+0xffffff80086ca170: add	x20, x22, x8   ; kbase_map_external_resource
+0xffffff80086ca174: ldr	x0, [x22, #8]   ; kbase_map_external_resource
+0xffffff80086ca178: ldr	x2, [x19, #0x30]   ; kbase_map_external_resource
+0xffffff80086ca17c: ldr	x3, [x9, #0x18]   ; kbase_map_external_resource
+0xffffff80086ca180: ldr	w6, [x20]   ; kbase_map_external_resource
+0xffffff80086ca184: add	x21, x22, #0x10   ; kbase_map_external_resource
+0xffffff80086ca188: mov	w8, #0x2004   ; kbase_map_external_resource
+0xffffff80086ca18c: orr	x5, x10, x8   ; kbase_map_external_resource
+0xffffff80086ca190: mov	x1, x21   ; kbase_map_external_resource
+0xffffff80086ca194: mov	x4, x27   ; kbase_map_external_resource
+0xffffff80086ca198: bl	#0xffffff80086cc2a0   ; kbase_map_external_resource
+0xffffff80086ca19c: cbz	w0, #0xffffff80086ca1cc   ; kbase_map_external_resource
+0xffffff80086ca1a0: ldr	x0, [x28, #0x70]   ; kbase_map_external_resource
+0xffffff80086ca1a4: ldr	x1, [x28, #0x80]   ; kbase_map_external_resource
+0xffffff80086ca1a8: mov	w2, wzr   ; kbase_map_external_resource
+0xffffff80086ca1ac: bl	#0xffffff80087fba30   ; kbase_map_external_resource
+0xffffff80086ca1b0: str	xzr, [x28, #0x80]   ; kbase_map_external_resource
+0xffffff80086ca1b4: ldr	x8, [x19, #0x60]   ; kbase_map_external_resource
+0xffffff80086ca1b8: mov	x20, xzr   ; kbase_map_external_resource
+0xffffff80086ca1bc: ldr	w9, [x8, #0x78]   ; kbase_map_external_resource
+0xffffff80086ca1c0: sub	w9, w9, #1   ; kbase_map_external_resource
+0xffffff80086ca1c4: str	w9, [x8, #0x78]   ; kbase_map_external_resource
+0xffffff80086ca1c8: b	#0xffffff80086ca300   ; kbase_map_external_resource
+0xffffff80086ca1cc: ldr	x8, [x19, #0x48]   ; kbase_map_external_resource
+0xffffff80086ca1d0: tbz	w8, #0x15, #0xffffff80086ca2d8   ; kbase_map_external_resource
+0xffffff80086ca1d4: ldp	x9, x10, [x19, #0x30]   ; kbase_map_external_resource
+0xffffff80086ca1d8: ldr	x2, [x22, #0xd0]   ; kbase_map_external_resource
+0xffffff80086ca1dc: and	x8, x8, #0xfffffffffffffffb   ; kbase_map_external_resource
+0xffffff80086ca1e0: orr	x4, x8, #0x2000   ; kbase_map_external_resource
+0xffffff80086ca1e4: add	x1, x9, x27   ; kbase_map_external_resource
+0xffffff80086ca1e8: sub	x3, x10, x27   ; kbase_map_external_resource
+0xffffff80086ca1ec: mov	x0, x22   ; kbase_map_external_resource
+0xffffff80086ca1f0: bl	#0xffffff80086cbae4   ; kbase_map_external_resource
+0xffffff80086ca1f4: cbz	w0, #0xffffff80086ca2d8   ; kbase_map_external_resource
+0xffffff80086ca1f8: ldr	x0, [x22, #8]   ; kbase_map_external_resource
+0xffffff80086ca1fc: ldr	x2, [x19, #0x30]   ; kbase_map_external_resource
+0xffffff80086ca200: ldr	w4, [x20]   ; kbase_map_external_resource
+0xffffff80086ca204: mov	x1, x21   ; kbase_map_external_resource
+0xffffff80086ca208: mov	x3, x27   ; kbase_map_external_resource
+0xffffff80086ca20c: bl	#0xffffff80086cc4bc   ; kbase_map_external_resource
+0xffffff80086ca210: b	#0xffffff80086ca1a0   ; kbase_map_external_resource
+0xffffff80086ca214: mov	w23, w22   ; kbase_map_external_resource
+0xffffff80086ca218: cbnz	w23, #0xffffff80086ca2c0   ; kbase_map_external_resource
+0xffffff80086ca21c: b	#0xffffff80086ca2d8   ; kbase_map_external_resource
+0xffffff80086ca220: ldr	x25, [sp]   ; kbase_map_external_resource
+0xffffff80086ca224: mov	w23, #-0xc   ; kbase_map_external_resource
+0xffffff80086ca228: cbnz	x28, #0xffffff80086ca258   ; kbase_map_external_resource
+0xffffff80086ca22c: b	#0xffffff80086ca2a8   ; kbase_map_external_resource
+0xffffff80086ca230: mov	x4, xzr   ; kbase_map_external_resource
+0xffffff80086ca234: mov	w8, #0x2dcc   ; kbase_map_external_resource
+0xffffff80086ca238: movk	w8, #2, lsl #16   ; kbase_map_external_resource
+0xffffff80086ca23c: ldr	x5, [x19, #0x48]   ; kbase_map_external_resource
