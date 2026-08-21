@@ -1,0 +1,6 @@
+title: Fire HD Ownership
+description: "Owning a tablet Amazon kept shutting down: CVE-2022-38181, four AI models, five months"
+baseurl: "/fire-hd-ownership"
+url: "https://ericpardee.github.io"
+markdown: kramdown
+exclude: [share-kit.md, README.md]
