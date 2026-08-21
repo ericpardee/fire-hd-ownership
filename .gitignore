@@ -1,2 +1,12 @@
 *.log
 .DS_Store
+logs/
+mtkclient/
+ghsl/
+kbase-src/
+ota_ps7326.bin
+ota_extract/
+_site/
+.zcode/
+share-kit.md
+preview.html

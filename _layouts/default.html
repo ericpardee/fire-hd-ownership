@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/style.css">
+</head>
+<body>
+  <main>
+    {{ content }}
+  </main>
+<script>
+document.addEventListener('click', function (e) {
+  var img = e.target.closest && e.target.closest('main img');
+  if (!img) return;
+  var overlay = document.createElement('div');
+  overlay.id = 'lightbox';
+  var big = document.createElement('img');
+  big.src = img.src;
+  big.alt = img.alt || '';
+  overlay.appendChild(big);
+  overlay.addEventListener('click', function () {
+    overlay.remove();
+    document.body.style.overflow = '';
+  });
+  document.body.appendChild(overlay);
+  document.body.style.overflow = 'hidden';
+  e.preventDefault();
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    var lb = document.getElementById('lightbox');
+    if (lb) { lb.remove(); document.body.style.overflow = ''; }
+  }
+});
+</script>
+</body>
+</html>
