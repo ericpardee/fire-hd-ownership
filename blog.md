@@ -239,4 +239,4 @@ This was on repeat during the final week of the saga, while the tablet rebooted 
   <source src="blog-assets/hack-yo-self.mp3" type="audio/mpeg">
 </audio>
 
-*From [The Launch](https://www.jupiterbroadcasting.com/show/the-launch/) (Jupiter Broadcasting), used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).*
+*From the live show edition of [LINUX Unplugged 680, "Go Hack Yourself"](https://linuxunplugged.com/680) (Jupiter Broadcasting), used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). It is live-stream content and does not appear in the edited episode. Originally attributed to [The Launch](https://www.jupiterbroadcasting.com/show/the-launch/), also a great show.*

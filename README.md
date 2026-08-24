@@ -41,4 +41,4 @@ Five months later, after a relay race between four AI models and $266.15 in API 
 
 ## Audio
 
-The blog closes with a clip from [The Launch](https://www.jupiterbroadcasting.com/show/the-launch/) (Jupiter Broadcasting), used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+The blog closes with a clip from the live show edition of [LINUX Unplugged 680, "Go Hack Yourself"](https://linuxunplugged.com/680) (Jupiter Broadcasting), used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The clip is live-stream content, not part of the edited episode.
