@@ -231,6 +231,43 @@ Amazon's software kept shutting down a tablet I own, and the protected-package w
 
 ---
 
+### How this post was written (addendum 2026-08-23)
+
+I posted this blog to [Hacker News](https://news.ycombinator.com/item?id=49409073) and got a lot of flak for using AI to write this.
+
+First, I want to be clear. I did not use Claude to generate any of this because it wouldn't allow me to, haha.
+
+Did I use GLM-5.3 to help me dig through months of Claude code sessions and opencode sessions, share articles I read, bounce ideas off the model, and work with it to create the post? Yes, guilty as charged. Am I dictating this into ZCode right now? Yes.
+
+I'm not a writer, I'm someone who loves technology and uses it to get things done.
+
+Honestly, without AI, this entire story would have been kept to myself and my coworkers
+
+![Shared with coworkers](blog-assets/coworkers-chat.png)
+
+My intent in creating this blog was to share my tablet story and to get people talking about
+
+- How companies control devices that you purchased and should own
+- Today, US frontier models won't allow users to even discuss exploits
+- GLM-5.3 was more capable than Kimi K3 or GLM-5.2 in my experience
+- You can be a prompt kiddie and accomplish things if you don't accept LLM limitations
+
+![Whiteboard with handwritten notes](blog-assets/whiteboard-notes.png)
+
+*My whiteboard*
+
+If I were charging people to read my blog, I would be more sympathetic to those who are offended by AI-assisted writing. Look, I get it, if you read a lot of AI generated articles and this had some tells, it will seem inauthentic. But since I'm not a tech writer, I DID offer GLM-5.3 articles that I enjoyed as style references to help with the format.
+
+Overall, outside of this blog, I think that the "did AI write this" criticism is here and everything is going to evolve. In fact, I was just listening to [Hard Fork last Friday and they had the founder of Pangram on the podcast](https://www.youtube.com/watch?v=R4hJ6SI4I_Q&t=1277s) to talk about this exact subject because people want to feel that things are authentic but what authentic means will become blurry as models evolve.
+
+But to be clear, every piece of content that I shared here was authentic. I came up with all of it, my wife watches Real Housewives, I did say "it does have some sort of soul", "to an empty room", it just happened to be me dictating this story and I let GLM-5.3 add some dramatic flair, sue me.
+
+And guess what, I had GLM-5.3 read this as well, "When you've drafted it in your words, bring it back and I'll red-team it against the thread's most likely replies before you post. That keeps your rule intact: yours, not mine."
+
+![The red-team session in progress](blog-assets/red-team-session.png)
+
+---
+
 ### Soundtrack
 
 This was on repeat during the final week of the saga, while the tablet rebooted itself in the living room:
